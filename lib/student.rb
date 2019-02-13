@@ -38,21 +38,21 @@ def save
 end 
 end 
   
-  def self.create(name:, album:)
-    song = Song.new(name,album)
+  def self.create(name:, grade:)
+    song = Song.new(name,grade)
     song.save
     song 
   end 
   
   def self.find_by_name(name)
-    sql = "SELECT * FROM songs WHERE name = ?"
-    result = DB[:conn].execute(sql, name)[0]
-    Song.new(result[0], result[1], result[2])
+    sql = "SELECT * FROM students WHERE name = ?"
+    result = DB[:conn].execute(sql, name)
+    new_from_db(result[0])
   end
 
   def update
-    sql = "UPDATE song SET name = ?, album = ? WHERE name = ?"
-      DB[:conn].execute(sql, self.name, self.album, self.id)
+    sql = "UPDATE students SET name = ?, grade = ? WHERE name = ?"
+      DB[:conn].execute(sql, self.name, self.grade, self.id)
     end 
   
   def save 
@@ -60,11 +60,11 @@ end
      INSERT INTO songs (name, album)
      VALUES (?, ?)
   SQL
-  DB[:conn].execute(sql, self.name, self.album)
-  @id = DB[:conn].execute("SELECT last_insert_rowid() FROM songs" [0][0])
+  DB[:conn].execute(sql, self.name, self.grade)
+  @id = DB[:conn].execute("SELECT last_insert_rowid() FROM grade" [0][0])
 end
   
-  
+end 
   
   
   
