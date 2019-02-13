@@ -23,8 +23,9 @@ end
 end 
 
 def save 
-  sql = <<- SQL 
-   INSERT INTO songs (name, album)
+  sql = <<-SQL 
+   
+   INSERT INTO students (name, grade)
    values (?, ?)
   
   SQL
@@ -47,7 +48,7 @@ end
 
   def update
     sql = "UPDATE song SET name = ?, album = ? WHERE name = ?"
-      DB[:conn].execute(sql, self.name, self.album, self.name)
+      DB[:conn].execute(sql, self.name, self.album, self.id)
     end 
   
   def save 
