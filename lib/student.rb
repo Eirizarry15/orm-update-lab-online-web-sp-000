@@ -27,14 +27,7 @@ def self.drop_table
   end
 
 def save 
-  sql = <<-SQL 
-   
-   INSERT INTO students (name, grade)
-   values (?, ?)
   
-  SQL
-  
-  DB[:conn].execute("SELECT last_insert_rowid() FROM songs")[0][0]
 end 
 end 
   
