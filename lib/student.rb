@@ -39,9 +39,9 @@ end
 end 
   
   def self.create(name:, grade:)
-    song = Song.new(name,grade)
-    song.save
-    song 
+    student = STUDENT.new(name,grade)
+    student.save
+     
   end 
   
   def self.find_by_name(name)
