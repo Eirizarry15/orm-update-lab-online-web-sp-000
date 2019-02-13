@@ -20,7 +20,11 @@ def self.create_table
   DB[:conn].execute(sql)
 end 
 
+def self.drop_table
+    sql =  "DROP TABLE students"
 
+    DB[:conn].execute(sql)
+  end
 
 def save 
   sql = <<-SQL 
